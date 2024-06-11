@@ -32,4 +32,12 @@ class TodoController extends Controller
 
         return redirect()->route('todo.index');
     }
+
+    public function show($id)
+    {
+        $todo = new Todo();
+        $targetTodo = $todo->find($id);
+        
+        return view('todo.show', ['todo' => $targetTodo]);
+    }
 }
